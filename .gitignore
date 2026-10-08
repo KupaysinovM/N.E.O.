@@ -56,3 +56,8 @@ screenshots/
 # Task history (core/task_store.py). It describes this machine's session, is
 # recreated on demand, and is not part of the source tree.
 state/
+
+config/secure/*
+config/neo_settings.json
+*.dat
+.env
