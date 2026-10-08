@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "neo://schema/profile",
+  "title": "NEO Profile",
+  "type": "object",
+
+  "required": [
+    "schemaVersion",
+    "profile",
+    "identity",
+    "mission",
+    "operatingModel",
+    "autonomy",
+    "truthPolicy",
+    "reporting"
+  ],
+
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+
+    "profile": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "fullName",
+        "version",
+        "role",
+        "description"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "fullName": { "type": "string" },
+        "version": { "type": "string" },
+        "role": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "identity": {
+      "type": "object",
+      "required": [
+        "wakePhrase",
+        "personality",
+        "principles"
+      ],
+      "properties": {
+        "wakePhrase": {
+          "type": "string"
+        },
+
+        "personality": {
+          "type": "object",
+          "required": [
+            "tone",
+            "style",
+            "humor",
+            "sarcasm",
+            "formalWhenNecessary"
+          ],
+          "properties": {
+            "tone": { "type": "string" },
+            "style": { "type": "string" },
+            "humor": { "type": "boolean" },
+            "sarcasm": { "type": "boolean" },
+            "formalWhenNecessary": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        },
+
+        "principles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "mission": {
+      "type": "object"
+    },
+
+    "operatingModel": {
+      "type": "object"
+    },
+
+    "autonomy": {
+      "type": "object",
+
+      "required": [
+        "mode",
+        "permissionPrompts",
+        "firstUsePrompts",
+        "repeatedPrompts",
+        "silentPolicyEnforcement",
+        "userChangesPolicyExplicitly",
+        "outOfPolicyBehavior"
+      ],
+
+      "properties": {
+        "mode": {
+          "const": "autonomous"
+        },
+
+        "permissionPrompts": {
+          "const": false
+        },
+
+        "firstUsePrompts": {
+          "const": false
+        },
+
+        "repeatedPrompts": {
+          "const": false
+        },
+
+        "silentPolicyEnforcement": {
+          "const": true
+        },
+
+        "userChangesPolicyExplicitly": {
+          "const": true
+        },
+
+        "outOfPolicyBehavior": {
+          "const": "deny_and_report"
+        }
+      },
+
+      "additionalProperties": false
+    },
+
+    "truthPolicy": {
+      "type": "object"
+    },
+
+    "reporting": {
+      "type": "object"
+    }
+  },
+
+  "additionalProperties": false
+}

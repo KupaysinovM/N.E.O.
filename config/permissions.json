@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "default": "deny",
+    "principle": "least_privilege",
+
+    "authorizationMode": "silent_policy",
+
+    "modelMayRequest": true,
+    "modelMayGrant": false,
+    "agentMayGrant": false,
+
+    "userApprovalPrompts": false,
+    "firstUseApproval": false,
+    "repeatedApproval": false
+  },
+
+  "categories": {
+    "filesystem": {
+      "enabled": true,
+      "default": "deny"
+    },
+    "process": {
+      "enabled": true,
+      "default": "deny"
+    },
+    "browser": {
+      "enabled": true,
+      "default": "deny"
+    },
+    "communication": {
+      "enabled": true,
+      "default": "deny"
+    },
+    "device": {
+      "enabled": true,
+      "default": "deny"
+    },
+    "system": {
+      "enabled": true,
+      "default": "deny"
+    },
+    "financial": {
+      "enabled": true,
+      "default": "deny",
+      "outOfPolicy": "deny"
+    },
+    "credentials": {
+      "enabled": true,
+      "default": "deny",
+      "outOfPolicy": "deny"
+    }
+  },
+
+  "behavior": {
+    "inPolicy": "execute",
+    "outOfPolicy": "deny_and_report",
+    "unknownPolicy": "deny_and_report",
+    "doNotPromptUser": true
+  }
+}

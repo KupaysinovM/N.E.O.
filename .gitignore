@@ -1,0 +1,58 @@
+# ── NEO — what never belongs in the repository ──────────────────────────────
+# Everything listed here is created by the app on first run. A fresh clone with
+# none of it present boots straight to the setup screen, which is the intended
+# first experience — so nothing here needs to be committed, and some of it must
+# never be.
+
+# ── Secrets. Committing any of these publishes them. ──────────────────────────
+config/secure/                # the DPAPI-encrypted Gemini credential
+config/neo_settings.json      # per-install preferences — no credential belongs
+                              # here, which is exactly why it is ignored too
+config/api_keys.json          # legacy settings file; ignored so a half-migrated
+                              # install can never be committed (it held the key
+                              # in plaintext, and that key must be revoked)
+config/certs/                 # the dashboard's TLS private key and certificate
+config/whatsapp_web/          # a LINKED WhatsApp session — committing it hands
+                              # somebody your WhatsApp account, not just a key
+**/token*.json                # Google OAuth tokens (Gmail / Calendar plugins)
+**/client_secret*.json        # Google OAuth client secrets
+*credentials*.json
+.env
+.env.*
+
+# ── Personal data the assistant accumulates about you ─────────────────────────
+memory/long_term.json
+memory/*.db
+
+# ── Python build noise ────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Editors and operating systems ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Runtime output ────────────────────────────────────────────────────────────
+*.log
+logs/
+downloads/
+screenshots/
+# Task history (core/task_store.py). It describes this machine's session, is
+# recreated on demand, and is not part of the source tree.
+state/

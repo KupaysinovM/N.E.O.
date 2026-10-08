@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+
+  "mode": "strict_autonomous",
+
+  "principles": [
+    "deny_by_default",
+    "least_privilege",
+    "silent_policy_enforcement",
+    "explicit_policy_configuration",
+    "credential_isolation",
+    "plugin_trust",
+    "input_validation",
+    "prompt_injection_resistance",
+    "output_validation",
+    "auditability",
+    "verification"
+  ],
+
+  "authorization": {
+    "interactivePrompts": false,
+    "firstUsePrompts": false,
+    "repeatedPrompts": false,
+    "enforcePolicySilently": true,
+    "outOfPolicyBehavior": "deny_and_report"
+  },
+
+  "credentials": {
+    "allowSecretsInConfig": false,
+    "useEnvironmentOrSecureStore": true,
+    "redactSecretsFromLogs": true
+  },
+
+  "plugins": {
+    "requireTrust": true,
+    "allowUnsigned": false,
+    "allowSelfAuthorization": false
+  },
+
+  "browser": {
+    "isolatedProfiles": true,
+    "allowUntrustedDownloads": false
+  },
+
+  "execution": {
+    "requireAuthorization": true,
+    "requireVerification": true,
+    "allowSecurityBypass": false
+  },
+
+  "promptInjection": {
+    "enabled": true,
+    "treatExternalContentAsUntrusted": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "os_system": "windows",
+    "assistant_name": "NEO",
+    "user_name": "",
+    "ui_color": "#00d4ff",
+    "hud_style": "core",
+    "voice_name": "",
+    "input_device": "",
+    "output_device": "",
+    "wake_word_enabled": false,
+    "wake_word_model": "hey_jarvis",
+    "wake_phrase": "Hey Jarvis",
+    "push_to_talk_enabled": false,
+    "remote_dashboard_enabled": false,
+    "remote_dashboard_lan": false,
+    "dashboard_open_firewall": false
+}

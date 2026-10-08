@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "neo://schema/security",
+  "title": "NEO Security",
+  "type": "object",
+
+  "required": [
+    "schemaVersion",
+    "mode",
+    "authorization",
+    "credentials",
+    "plugins",
+    "browser",
+    "execution",
+    "promptInjection"
+  ],
+
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+
+    "mode": {
+      "const": "strict_autonomous"
+    },
+
+    "principles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "authorization": {
+      "type": "object",
+
+      "required": [
+        "interactivePrompts",
+        "firstUsePrompts",
+        "repeatedPrompts",
+        "enforcePolicySilently",
+        "outOfPolicyBehavior"
+      ],
+
+      "properties": {
+        "interactivePrompts": {
+          "const": false
+        },
+
+        "firstUsePrompts": {
+          "const": false
+        },
+
+        "repeatedPrompts": {
+          "const": false
+        },
+
+        "enforcePolicySilently": {
+          "const": true
+        },
+
+        "outOfPolicyBehavior": {
+          "const": "deny_and_report"
+        }
+      },
+
+      "additionalProperties": false
+    },
+
+    "credentials": {
+      "type": "object"
+    },
+
+    "plugins": {
+      "type": "object"
+    },
+
+    "browser": {
+      "type": "object"
+    },
+
+    "execution": {
+      "type": "object"
+    },
+
+    "promptInjection": {
+      "type": "object"
+    }
+  },
+
+  "additionalProperties": false
+}

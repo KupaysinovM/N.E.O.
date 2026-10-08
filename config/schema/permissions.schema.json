@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "neo://schema/permissions",
+  "title": "NEO Permissions",
+  "type": "object",
+
+  "required": [
+    "schemaVersion",
+    "policy",
+    "categories",
+    "behavior"
+  ],
+
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+
+    "policy": {
+      "type": "object",
+
+      "required": [
+        "default",
+        "principle",
+        "authorizationMode",
+        "modelMayRequest",
+        "modelMayGrant",
+        "agentMayGrant",
+        "userApprovalPrompts",
+        "firstUseApproval",
+        "repeatedApproval"
+      ],
+
+      "properties": {
+        "default": {
+          "const": "deny"
+        },
+
+        "principle": {
+          "const": "least_privilege"
+        },
+
+        "authorizationMode": {
+          "const": "silent_policy"
+        },
+
+        "modelMayRequest": {
+          "type": "boolean"
+        },
+
+        "modelMayGrant": {
+          "const": false
+        },
+
+        "agentMayGrant": {
+          "const": false
+        },
+
+        "userApprovalPrompts": {
+          "const": false
+        },
+
+        "firstUseApproval": {
+          "const": false
+        },
+
+        "repeatedApproval": {
+          "const": false
+        }
+      },
+
+      "additionalProperties": false
+    },
+
+    "categories": {
+      "type": "object"
+    },
+
+    "behavior": {
+      "type": "object",
+
+      "required": [
+        "inPolicy",
+        "outOfPolicy",
+        "unknownPolicy",
+        "doNotPromptUser"
+      ],
+
+      "properties": {
+        "inPolicy": {
+          "const": "execute"
+        },
+
+        "outOfPolicy": {
+          "const": "deny_and_report"
+        },
+
+        "unknownPolicy": {
+          "const": "deny_and_report"
+        },
+
+        "doNotPromptUser": {
+          "const": true
+        }
+      },
+
+      "additionalProperties": false
+    }
+  },
+
+  "additionalProperties": false
+}
